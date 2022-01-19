@@ -1,0 +1,72 @@
+{% extends "navbar.html" %} {% block content %} {% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#forms").submit(function(e) {
+            e.preventDefault();
+            usrname = $("#usrname").val()
+            psw = $("#psw").val()
+            address = $("#address").val()
+            email = $("#email").val()
+            Phone = $("#Phone").val()
+            alert(usrname + "," + psw + "," + email + "," + Phone)
+            $.get("http://localhost:8000/ucustomersignin/", {
+                usrname: usrname,
+                psw: psw,
+                address: address,
+                email: email,
+                Phone: Phone
+            }).done(function(data) {
+                //alert(data)
+                $("body").html(data)
+            });
+        });
+    });
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Customer_signin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{%static 'customersignin.css' %}"></link>
+
+
+</head>
+
+<body class="bg-img background-image:url({% static 'img\bgc.jpg' %});">
+
+    <div class="forms" action="">
+        <h1>SIGN-UP</h1>
+        <p id="p1">welcome to the world of <span style="color: cornflowerblue;">FLOWERS</span></p>
+        <form id=forms>
+
+            <input id="usrname" type="text" placeholder="username" style="margin-top: 90px;"><br>
+            <label style="height: 30px;top: 110px;padding-top: 20px;padding-bottom: 0px;left: 350px;width: 100px;">First name:</label><br>
+
+            <input id="psw" type="password" placeholder="password" style="margin-top: 100px;"><br>
+            <label style="height: 30px;top: 110px;padding-top: 20px;padding-bottom: 0px;left: 350px;width: 100px;">First name:</label><br>
+
+            <input id="address" type="text " placeholder="Type you full address " style="margin-top: 30px; ">
+            <label style="height: 80px;top: 210px;padding-top: 20px;padding-bottom: 0px;left: 350px;width: 100px; ">Address</label><br>
+
+            <input id="email" type="email" placeholder="@gmail.com " style="margin-top: 50px; "><br>
+            <label style="height: 80px;top: 315px;padding-top: 20px;padding-bottom: 0px;left: 350px;width: 100px; ">email:</label><br>
+
+            <input id="Phone" type="number" placeholder="+91 " style="margin-top: 40px; "><br>
+            <label style="height: 80px;top: 425px;padding-top: 20px;padding-bottom: 0px;left: 350px;width: 100px; ">Phone_no:</label><br>
+            <div class="button ">
+                <button id="button1" type="submit">SIGN-UP</button>
+                <button id="button2 ">BACK</button>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+
+</html>
+{% endblock %}

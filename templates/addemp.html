@@ -1,0 +1,44 @@
+{% extends "navbar.html" %} {% block content %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Add Employee</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'addemp.css' %}"></link>
+
+
+</head>
+
+<body class="bg-img background-image:url({% static 'img\forest-gb68dba043_1920.jpg' %});">
+
+    <div class="forms" action=" " style="margin-top:90px;height:750px;margin-bottom: 0;">
+        <h1>New Employee</h1>
+
+        <form>
+            <label for="fname " style="height: 30px;top: 90px;padding-top: 20px;padding-bottom: 0px;left: 350px;width: 100px; "> Name:</label><br>
+            <input type="text " id="fname " placeholder="username " style="margin-top: 60px; " /><br>
+
+            <label for="Address " style="height: 80px;top: 197px;padding-top: 20px;padding-bottom: 0px;left: 350px;width: 100px; ">Address</label><br>
+            <input type="text " id="address " placeholder="Type you full address " style="margin-top: 30px; " />
+            <label for="email " style="height: 80px;top: 300px;padding-top: 20px;padding-bottom: 0px;left: 350px;width: 100px; ">email:</label><br>
+            <input type="text " id="email " placeholder="@gmail.com " style="margin-top: 50px; " /><br>
+            <label for="Phone_no. " style="height: 80px;top: 410px;padding-top: 20px;padding-bottom: 0px;left: 350px;width: 100px; ">Phone_no:</label><br>
+            <input type="text " id="Phone_no. " placeholder="+91 " style="margin-top: 40px; " /><br>
+            <label for="Wages " style="height: 80px;top: 510px;padding-top: 20px;padding-bottom: 0px;left: 350px;width: 100px; ">Wages</label><br>
+            <input type="number " id="Wages " placeholder="INR " /><br>
+            <div class="button ">
+                <button>ADD</button>
+                <button id="button2 ">DELETE</button>
+                <button id="button3 ">BACK</button>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+
+</html>
+{% endblock %}

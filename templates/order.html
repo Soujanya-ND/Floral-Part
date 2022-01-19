@@ -1,0 +1,97 @@
+{% extends "navbar.html" %} {% block content %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ORDER</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'order.css' %}"></link>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+
+<body class="bg-img1 background-image:url({% static 'img\bg001.jpg' %});">
+    <h2> PLACE YOUR ORDER HERE</h2>
+    <div class="container" id="container">
+        <div class="form-container services-container">
+            <form action="#">
+                <h1>PRODUCTS ORDER</h1>
+                <select class="flower">
+                <option value="Flower">Flower Name</option>
+                <option value="Rose">Rose</option>
+                <option value="Lily">Lily</option>
+                <option value="Tulip">Tulip</option>
+                <option value="hibiscus">hibiscus</option>
+                <option value="lotus">lotus</option>
+                <option value="Jasmine">Jasmine</option>
+            </select>
+
+                <input type="text" placeholder="Flower ID " />
+                <input type="date" placeholder="Date OF Purchase" />
+                <input type="number" placeholder="Quantity" />
+                <input type="number" placeholder="Total Price" />
+                <button>BUY</button>
+                <button>RESET</button>
+                <button>CANCEL</button>
+            </form>
+
+        </div>
+        <div class="form-container products-container">
+            <form action="#">
+                <h1>SERVICES ORDER</h1>
+                <select class="services">
+                <option value="service">Service Name</option>
+                <option value="Rose">Garland</option>
+                <option value="Lily">Wreath</option>
+                <option value="Tulip">Flower Basker</option>
+                <option value="hibiscus">Bouquet</option>
+                <option value="lotus">Flower Collection</option>
+               
+            </select>
+
+                <input type="text" placeholder="Service ID " />
+                <input type="date" placeholder="Date OF Purchase" />
+                <input type="number" placeholder="Quantity" />
+                <input type="number" placeholder="Total Price" />
+                <button>BUY</button>
+                <button>RESET</button>
+                <button>CANCEL</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Interested in our products ?</h1>
+                    <p>Click on the below button and order them now !</p>
+                    <button class="ghost" id="products">PRODUCTS</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>WANT TO AVAIL OUR SERVICES ?</h1>
+                    <p>Click the below button to order them now!</p>
+                    <button class="ghost" id="services">SERVICES</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const productsButton = document.getElementById('services');
+        const servicesButton = document.getElementById('products');
+        const container = document.getElementById('container');
+
+        productsButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        servicesButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+    </script>
+
+</body>
+
+</html>
+{% endblock %}
